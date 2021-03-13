@@ -17,10 +17,12 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->string('nim');
             $table->string('name');
+            $table->string('role');
             $table->string('brithOfDay');
             $table->string('brithOfPlace');
             $table->string('gender');
             $table->double('totalPoint', 10, 0);
+            $table->timestamps();
         });
     }
 

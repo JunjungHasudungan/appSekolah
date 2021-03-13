@@ -10,12 +10,12 @@ return [
     // 
     'dashboard'                            => 'Dashboard',
     'admin'                                => 'Alexander Pierce',
-    'motor'                                => 'Data Motor',
+    'registrasi'                         => 'Data Registrasi',
     'penyewa'                              => 'Data Penyewa',
     'perbaikan'                            => 'Data Perbaikan',
     'layanan'                              => 'Data Layanan',
     'jumlah'                              => 'Jumlah  Motor',
-    'site_title'                              => 'Rental Motor',
+    'site_title'                              => 'App Sekolah',
     'Parent list'                          =>'Parent List',
     // 
     'delete'                               => 'Delete',

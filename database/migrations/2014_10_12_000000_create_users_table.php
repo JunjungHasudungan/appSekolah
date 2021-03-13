@@ -11,6 +11,20 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
+    /* 
+                $table->string('nim');
+            $table->string('name');
+            $table->string('role');
+            $table->string('brithOfDay');
+            $table->string('brithOfPlace');
+            $table->string('gender');
+            $table->double('totalPoint', 10, 0);
+
+                        $table->integer('student_id');
+            $table->integer('subject_id');
+            $table->date('registrasionDate');
+            $table->string('period');
+    */
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {

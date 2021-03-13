@@ -72,28 +72,28 @@
                         {{-- e --}}
                         <ul class="nav flex-column ">
                             <li class="c-sidebar-nav-item ">
-                                <a class="c-sidebar-nav-link" href="{{route('admin.index')}}">
+                                <a class="c-sidebar-nav-link" href="#">
                                     <i class="c-sidebar-nav-icon fas fa-tachometer-alt"></i>
                                     <span > {{ trans('global.dashboard') }}</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                            <a class="c-sidebar-nav-link" href="{{ route('motor.index') }}">
-                                    <i class="c-sidebar-nav-icon fas fa-cogs"></i> {{ trans('global.motor') }} 
+                            <a class="c-sidebar-nav-link" href="{{route('registration.index')}}">
+                                    <i class="c-sidebar-nav-icon fas fa-cogs"></i> {{ trans('global.registrasi') }} 
                                 </a>
                             </li>
                             <li class="nav-item">
-                            <a class="c-sidebar-nav-link" href="{{ route('penyewa.index') }}">
+                            <a class="c-sidebar-nav-link" href="#">
                                     <i class="c-sidebar-nav-icon ion ion-pie-graph"></i>  {{ trans('global.penyewa') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                            <a class="c-sidebar-nav-link" href="{{ route('perbaikan.index')}}">
+                            <a class="c-sidebar-nav-link" href="#">
                                     <i class="c-sidebar-nav-icon fas fa-sliders-h"></i> {{ trans('global.perbaikan') }} 
                                 </a>
                             </li>
                             <li class="nav-item">
-                            <a class="c-sidebar-nav-link" href="{{route('layanan.index')}}">
+                            <a class="c-sidebar-nav-link" href="#">
                                     <i class="fa-fw fas fa-cogs c-sidebar-nav-icon"></i> {{ trans('global.layanan') }} 
                                 </a>
                             </li>
