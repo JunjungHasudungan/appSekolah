@@ -11,13 +11,13 @@
                     </div>
                     <ul class="list-group list-group-unbordered-md-3">
                         <li class="list-group-item">
-                            <p>Nama : <a  class="float-right">{{ $students['name'] }}</a></p>
+                            <p>{{ trans('cruds.user.fields.name') }} <a  class="float-right">{{ $student['name'] }}</a></p>
                         </li>
                         <li class="list-group-item">
-                            <p>NIM : <a  class="float-right">{{ $students['nim'] }}</a></p>
+                            <p>{{ trans('cruds.user.fields.nim') }} <a  class="float-right">{{ $student['nim'] }}</a></p>
                         </li>
                     </ul>
-                    <a href="{{route('student.index')}}" class="btn btn-primary btn-block">Kembali</a>
+                    <a href="{{route('student.index')}}" class="btn btn-primary btn-block">{{ trans('global.back_to_list') }}</a>
                 </div>
             </div>
         </div>

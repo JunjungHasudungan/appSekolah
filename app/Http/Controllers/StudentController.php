@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Request\StoreStudent;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use DB;
@@ -18,6 +19,7 @@ class StudentController extends Controller
     {
 
         $students = Student::with('registrations')->get();
+        $students = Student::all();
         return view('students.index', compact('students'));
         // dd( $students);
     }
@@ -29,7 +31,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('students.create');
     }
 
     /**
@@ -38,9 +40,9 @@ class StudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreStudentRequest $request)
     {
-        //
+        
     }
 
     /**
@@ -49,10 +51,10 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Student $student)
     {
-        $students = Student::find($id);
-        return view('students.show', compact('students'));
+        $student->find($student);
+        return view('students.show', compact('student'));
     }
 
     /**
@@ -61,10 +63,10 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Student $student)
     {
-        $students = Student::find($id);
-        return view('students.edit', compact('students'));
+        $student->find($student);
+        return view('students.edit', compact('student'));
     }
 
     /**
@@ -74,7 +76,7 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateStudentRequest $request, Student $student)
     {
         //
     }
@@ -85,7 +87,7 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Student $student)
     {
         //
     }

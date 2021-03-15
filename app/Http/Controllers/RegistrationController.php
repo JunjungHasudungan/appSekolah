@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreRegistrationRequest;
+use App\Http\Requests\UpdateRegistrationRequest;
 use Illuminate\Http\Request;
 use App\Models\Registration;
+use App\Models\Student;
+use App\Models\Subject;
 
 class RegistrationController extends Controller
 {
@@ -14,8 +18,9 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        $registrations = Registration::all();
+        $registrations = Registration::with('students')->get();
         return view('registration.index', compact('registrations'));
+        // dd($registrations);
     }
 
     /**
@@ -25,7 +30,9 @@ class RegistrationController extends Controller
      */
     public function create()
     {
-        //
+        $students = Student::pluck('name', 'id');
+        $subjects = Subject::pluck('name', 'id');
+        return view('registration.create', compact('student', 'subject'));
     }
 
     /**
@@ -34,9 +41,10 @@ class RegistrationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRegistrationRequest $request)
     {
-        //
+        $registrations = Registration::create($request->all());
+        return redirect()->route('registration.index');
     }
 
     /**
@@ -45,7 +53,7 @@ class RegistrationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Registration $registration)
     {
         //
     }
@@ -56,9 +64,10 @@ class RegistrationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Registration $registration)
     {
-        //
+        $registration->find($registration);
+        return view('registration.edit', compact('registration'));
     }
 
     /**
@@ -68,7 +77,7 @@ class RegistrationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpteRegistrationRequest $request, Registration $registration)
     {
         //
     }
@@ -79,7 +88,7 @@ class RegistrationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Registration $registration)
     {
         //
     }
