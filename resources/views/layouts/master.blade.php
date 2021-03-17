@@ -79,17 +79,17 @@
                             </li>
                             <li class="nav-item">
                             <a class="c-sidebar-nav-link" href="{{route('registration.index')}}">
-                                    <i class="c-sidebar-nav-icon fas fa-cogs"></i> {{ trans('global.registrasi') }} 
+                                    <i class="c-sidebar-nav-icon fas fa-cogs"></i> {{ trans('global.registration') }} 
                                 </a>
                             </li>
                             <li class="nav-item">
-                            <a class="c-sidebar-nav-link" href="#">
-                                    <i class="c-sidebar-nav-icon ion ion-pie-graph"></i>  {{ trans('global.penyewa') }}
+                            <a class="c-sidebar-nav-link" href="{{route('student.index')}}">
+                                    <i class="c-sidebar-nav-icon fas fa-users"></i>  {{ trans('cruds.user.title_student') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                            <a class="c-sidebar-nav-link" href="#">
-                                    <i class="c-sidebar-nav-icon fas fa-sliders-h"></i> {{ trans('global.perbaikan') }} 
+                            <a class="c-sidebar-nav-link" href="{{route('teacher.index')}}">
+                                    <i class="c-sidebar-nav-icon fas fa-chalkboard-teacher"></i> {{ trans('cruds.user.title_teacher') }} 
                                 </a>
                             </li>
                             <li class="nav-item">

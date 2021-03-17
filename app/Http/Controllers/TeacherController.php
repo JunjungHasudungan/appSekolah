@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Request\StoreStudent;
 use Illuminate\Http\Request;
-use App\Models\Student;
-use DB;
-
-
-class StudentController extends Controller
+use App\Models\Teacher;
+use Illuminate\Support\Str;
+class TeacherController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +14,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-
-        $students = Student::with('registrations')->get();
-        // $students = Student::all();
-        return view('students.index', compact('students'));
-        // dd( $students);
+        $teachers = Teacher::all();
+        return view('teachers.index', compact('teachers'));
     }
 
     /**
@@ -31,12 +25,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        $roles = Student::whereHas('roles', function($q){
-            $q->where('id', 3);
-        })
-        ->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
-        // return view('students.create', compact('roles'));
-        dd($roles);
+        $teachers = Teacher::all();
+        return view('teachers.create', compact('teachers'));
     }
 
     /**
@@ -45,12 +35,18 @@ class StudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreStudentRequest $request)
+    public function store(Request $request)
     {
-        $student  = new student;
-        $this->validate($request, [
-            '' => '',
+        $request->validate([
+            'name' => 'required|min:4',
+            ]);
+        
+         Teacher::create([
+            'name' => $request->name,
+            'slug' =>Str::slug($request->name, '-'),
         ]);
+
+        return redirect()->route('teacher.index'); 
     }
 
     /**
@@ -59,11 +55,10 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Student $student)
+    public function show($teacher)
     {
-        $student->find($student);
-        return view('students.show', compact('student'));
-        // dd($student);
+        $teacher = Teacher::where('slug', $teacher)->first();
+        return view('teachers.show', compact('teacher'));
     }
 
     /**
@@ -72,10 +67,9 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function edit($id)
     {
-        $student->find($student);
-        return view('students.edit', compact('student'));
+        //
     }
 
     /**
@@ -85,7 +79,7 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateStudentRequest $request, Student $student)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -96,7 +90,7 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy($id)
     {
         //
     }
