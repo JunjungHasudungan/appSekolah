@@ -93,8 +93,8 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                            <a class="c-sidebar-nav-link" href="#">
-                                    <i class="fa-fw fas fa-cogs c-sidebar-nav-icon"></i> {{ trans('global.layanan') }} 
+                            <a class="c-sidebar-nav-link" href="{{route('major.index')}}">
+                                    <i class="fa-fw fas fa-cogs c-sidebar-nav-icon"></i> {{ trans('global.majors') }} 
                                 </a>
                             </li>
                             <li class="c-sidebar-nav-item">

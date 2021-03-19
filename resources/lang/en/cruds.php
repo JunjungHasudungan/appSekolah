@@ -77,6 +77,17 @@ return [
             'deleted_at_helper'        => ' ',
         ],
     ],
+    'majors'        => [
+        'title'             => 'Jurusan',
+        'title_singular'    => 'Jurusan',
+        'fields'     => [
+            'id'        => 'ID',
+            'no'        => 'No',
+            'name'      => 'Nama Jurusan',
+            'cost'      => 'Estimasi Biaya',
+            'option'    => 'OPSI'            
+        ]
+    ],
     'contract'       => [
         'title'          => 'Contracts',
         'title_singular' => 'Contract',

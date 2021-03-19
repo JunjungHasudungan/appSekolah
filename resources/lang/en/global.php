@@ -13,7 +13,7 @@ return [
     'registrasi'                         => 'Data Registrasi',
     'penyewa'                              => 'Data Penyewa',
     'perbaikan'                            => 'Data Perbaikan',
-    'layanan'                              => 'Data Layanan',
+    'majors'                              => 'Data Jurusan',
     'jumlah'                              => 'Jumlah  Motor',
     'site_title'                              => 'App Sekolah',
     'Parent list'                          =>'Parent List',

@@ -18,6 +18,7 @@ class CreateTeachersTable extends Migration
             $table->string('id_teacher');
             $table->string('name')->unique();
             $table->string('slug');
+            $table->integer('role_id');
             $table->string('birth_of_day');
             $table->string('birth_of_pleace');
             $table->string('gender');

@@ -24,3 +24,4 @@ Route::get('/', function () {
 Route::resource('student', StudentController::class);
 Route::resource('registration', RegistrationController::class);
 Route::resource('teacher', TeacherController::class);
+Route::resource('major', MajorController::class);
