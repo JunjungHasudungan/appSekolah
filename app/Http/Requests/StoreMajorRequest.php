@@ -24,7 +24,8 @@ class StoreMajorRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'  => 'required',
+            'cost'  => 'required'
         ];
     }
 }

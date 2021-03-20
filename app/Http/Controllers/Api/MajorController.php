@@ -1,9 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreMajorRequest;
 use App\Models\Major;
+use App\Http\Resources\MajorResource;
+use Symfony\Component\HttpFoundation\Response;
+
 class MajorController extends Controller
 {
     /**
@@ -13,20 +18,7 @@ class MajorController extends Controller
      */
     public function index()
     {
-        // $majors = Major::all();
-        $majors = Major::with('courses')->get();
-         return view('majors.index', compact('majors')); 
-        // dd($majors);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return MajorResource::collection(Major::all());
     }
 
     /**
@@ -37,7 +29,14 @@ class MajorController extends Controller
      */
     public function store(StoreMajorRequest $request)
     {
-        //
+        $major = Major::create($request->all());
+        return (new MajorResource($major))->response()->setStatusCode(Response::HTTP_CREATED);
+        // $majors = new Major;
+        // $majors->name = $request->input('name');
+        // $majors->cost = $request->input('cost');
+        // $majors->save();
+
+        // return response()->json($majors);
     }
 
     /**
@@ -46,18 +45,7 @@ class MajorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Major $major)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Major $major)
+    public function show($id)
     {
         //
     }
@@ -69,7 +57,7 @@ class MajorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateMajorRequest $request, Major $major)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -80,7 +68,7 @@ class MajorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Major $major)
+    public function destroy($id)
     {
         //
     }

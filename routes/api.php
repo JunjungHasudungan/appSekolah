@@ -18,3 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+/* Route::apiResource('major', 'Api\\MajorController');
+Route::post('/major', 'Api\\MajorController@store'); */
+
+Route::resource('major', 'Api\\MajorController');
