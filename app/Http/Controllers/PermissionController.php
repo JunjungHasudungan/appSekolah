@@ -1,15 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\Permission;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreMajorRequest;
-use App\Models\Major;
-use App\Http\Resources\MajorResource;
-use Symfony\Component\HttpFoundation\Response;
 
-class MajorController extends Controller
+class PermissionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +14,19 @@ class MajorController extends Controller
      */
     public function index()
     {
-        return MajorResource::collection(Major::all());
+        $permissions = Permission::all();
+        // return view('permissions.index', compact('permissions'));
+        dd($permissions);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
     /**
@@ -27,16 +35,9 @@ class MajorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMajorRequest $request)
+    public function store(Request $request)
     {
-        $major = Major::create($request->all());
-        return (new MajorResource($major))->response()->setStatusCode(Response::HTTP_CREATED);
-        // $majors = new Major;
-        // $majors->name = $request->input('name');
-        // $majors->cost = $request->input('cost');
-        // $majors->save();
-
-        // return response()->json($majors);
+        //
     }
 
     /**
@@ -46,6 +47,17 @@ class MajorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
         //
     }

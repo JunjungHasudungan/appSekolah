@@ -4,17 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Major;
+use App\Http\Requests\StoreMajorRequest;
+use App\Http\Requests\UpdateMajorRequest;
+use Illuminate\Support\Facades\DB;
 class MajorController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     *inde
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
         // $majors = Major::all();
-        $majors = Major::with('courses')->get();
+        $majors = Major::paginate(5);
          return view('majors.index', compact('majors')); 
         // dd($majors);
     }
@@ -26,7 +29,7 @@ class MajorController extends Controller
      */
     public function create()
     {
-        //
+        return view('majors.create');
     }
 
     /**
@@ -37,7 +40,8 @@ class MajorController extends Controller
      */
     public function store(StoreMajorRequest $request)
     {
-        //
+        $major = Major::create($request->all());
+        return redirect()->route('major.index');
     }
 
     /**
@@ -48,7 +52,10 @@ class MajorController extends Controller
      */
     public function show(Major $major)
     {
-        //
+        // $major->find($major);
+        // $major->where('id', $major)->get(['name', 'cost']);
+        return view('majors.show', compact('major'));
+        // dd($major);
     }
 
     /**
@@ -59,7 +66,7 @@ class MajorController extends Controller
      */
     public function edit(Major $major)
     {
-        //
+        return view('majors.edit', compact('major'));
     }
 
     /**
@@ -71,7 +78,8 @@ class MajorController extends Controller
      */
     public function update(UpdateMajorRequest $request, Major $major)
     {
-        //
+        $major->update($request->all());
+        return redirect()->route('major.index');
     }
 
     /**
@@ -82,6 +90,7 @@ class MajorController extends Controller
      */
     public function destroy(Major $major)
     {
-        //
+        $major->delete();
+        return redirect()->route('major.index');
     }
 }

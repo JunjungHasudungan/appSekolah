@@ -23,6 +23,7 @@
             }
         }
         </style>        
+        <link href="css/layouts.css" type="text/css" rel="stylesheet">
         <link href="dashboard.css" rel="stylesheet">
           <!-- Select2 -->
         <!-- Font Awesome -->
@@ -54,9 +55,21 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/css/perfect-scrollbar.min.css" rel="stylesheet" />
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
+
  
     </head>
     <body>
+{{--          <div class="app-body">
+            @include('partial.menu')
+            <main class="main">
+                <div class="container-fluid">
+                    @yield('content')
+                </div>
+                <p>Test</p>
+                
+            </main>
+        </div>  --}}
+            
         <div id="app">
     
             <div class="container-fluid">
@@ -97,6 +110,7 @@
                                     <i class="fa-fw fas fa-cogs c-sidebar-nav-icon"></i> {{ trans('global.majors') }} 
                                 </a>
                             </li>
+                            <li> @include('partial.menu')</li>
                             <li class="c-sidebar-nav-item">
                                 <a href="#" class="c-sidebar-nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                                     <i class="c-sidebar-nav-icon fas fa-fw fa-sign-out-alt">

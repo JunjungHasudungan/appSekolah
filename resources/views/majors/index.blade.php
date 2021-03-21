@@ -8,7 +8,9 @@
                     <div class="card mt-2">
                         <div class="card-title mt-2 ml-2">  </div>
                         <div class="card-body">
+                            {{--  @can('major_create')  --}}
                                 <a href="{{route('major.create')}}" class="btn btn-primary mb-2">{{ trans('global.create_new_report') }}</a>
+                            {{--  @endcan  --}}
                             <div class="panel-body">
                                 <table class="table table-bordered table-hover">
                                     <tr>
@@ -23,12 +25,18 @@
                                         <td>{{$major->name}}</td>
                                         <td>{{ $major->cost }}</td>
                                         <td>
-                                            <button class = "btn btn-sm btn-warning" type="button" >{{ trans('global.delete') }}</button>
-                                            <button class = "btn btn-sm btn-secondary" type="button"><a href="{{route('major.edit', $major->id)}}"> {{ trans('global.edit') }} </a> </button>
+                                            <form action="{{route('major.destroy', $major->id)}}" method="POST" style="display:inline">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                <input type="submit" class="btn btn-sm btn-danger" value="{{ trans('global.delete') }}">
+                                            </form>
+                                            
+                                            <button class = "btn btn-sm btn-secondary" type="button"><a href="{{route('major.edit', $major->id)}}" > {{ trans('global.edit') }} </a> </button>
                                         </td>
                                     </tr>
                                     @endforeach
                                 </table>
+                                <div class="card card-footer float-center"> {{ $majors->links() }}</div>
                             </div>
                         </div>
                     </div>
