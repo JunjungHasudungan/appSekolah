@@ -4,11 +4,6 @@ use Illuminate\Database\Seeder;
 use App\Models\Major;
 class MajorTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         $majors = [

@@ -96,12 +96,12 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                            <a class="c-sidebar-nav-link" href="{{route('student.index')}}">
+                            <a class="c-sidebar-nav-link" href="#">
                                     <i class="c-sidebar-nav-icon fas fa-users"></i>  {{ trans('cruds.user.title_student') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                            <a class="c-sidebar-nav-link" href="{{route('teacher.index')}}">
+                            <a class="c-sidebar-nav-link" href="#">
                                     <i class="c-sidebar-nav-icon fas fa-chalkboard-teacher"></i> {{ trans('cruds.user.title_teacher') }} 
                                 </a>
                             </li>

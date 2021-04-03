@@ -13,4 +13,9 @@ class Role extends Model
     {
         return $this->hasMany(Student::class);
     }
+
+    public function users()
+    {
+        return $this->belongsToMany('\App\User', 'role_user', 'user_id', 'role_id');
+    }
 }
