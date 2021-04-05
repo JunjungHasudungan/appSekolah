@@ -14,9 +14,13 @@ class CreateBiographiesTable extends Migration
             $table->string('id_biography')->unique();
             $table->string('birth_of_day');
             $table->string('birth_of_pleace');
-            $table->integer('user_id')->index();
-            $table->integer('role_id')->index();
             $table->double('total_point', 10, 0)->nullable();
+
+            $table->unsignedBigInteger('user_id')->index();
+            $table->foreign('user_id')->references('id')->on('users');
+
+            $table->foreign('role_id')->references('id')->on('roles');
+            $table->unsignedBigInteger('role_id')->index();
             $table->timestamps();
         });
     }
