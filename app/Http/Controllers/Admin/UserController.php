@@ -1,18 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Permission;
+use App\User;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class PermissionController extends Controller
+class UserController extends Controller
 {
     public function index()
     {
-        $permissions = Permission::all();
-        
-        // return view('permissions.index', compact('permissions'));
-        dd($permissions);
+
+        $users = User::with(['roles', 'biographies'])->get();
+
+        return view('user.index', compact('users'));
+        // dd($users);
     }
 
     public function create()
@@ -20,20 +22,24 @@ class PermissionController extends Controller
         //
     }
 
+
     public function store(Request $request)
     {
         //
     }
+
 
     public function show($id)
     {
         //
     }
 
+
     public function edit($id)
     {
         //
     }
+
 
     public function update(Request $request, $id)
     {

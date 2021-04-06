@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Courses;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class CoursesController extends Controller
@@ -20,27 +20,27 @@ class CoursesController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store(StoreCoursesRequest $request)
     {
         //
     }
 
-    public function show($id)
+    public function show(Courses $course)
     {
         //
     }
 
-    public function edit($id)
+    public function edit(Courses $course)
     {
         //
     }
 
-    public function update(Request $request, $id)
+    public function update(UpdateCoursesRequest $request, Courses $course)
     {
         //
     }
 
-    public function destroy($id)
+    public function destroy(Courses $course)
     {
         //
     }

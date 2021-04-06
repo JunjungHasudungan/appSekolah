@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\StoreRegistrationRequest;
 use App\Http\Requests\UpdateRegistrationRequest;
-use Illuminate\Http\Request;
 use App\Models\Registration;
 use App\Models\Student;
 use App\Models\Subject;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class RegistrationController extends Controller
 {
-
     public function index()
     {
         $registrations = Registration::with('students')->get();

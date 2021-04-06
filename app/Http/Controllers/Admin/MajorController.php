@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Models\Major;
 use App\Http\Requests\StoreMajorRequest;
 use App\Http\Requests\UpdateMajorRequest;
-use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
 class MajorController extends Controller
 {
     public function index()
@@ -14,7 +15,7 @@ class MajorController extends Controller
         // $majors = Major::with('courses')->get();
         $majors = Major::paginate(5);
         
-        return view('majors.index', compact('majors')); 
+        return view('admin.majors.index', compact('majors')); 
         // dd($majors);
     }
 
