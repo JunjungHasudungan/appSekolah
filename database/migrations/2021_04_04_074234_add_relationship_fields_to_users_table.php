@@ -14,7 +14,7 @@ class AddRelationshipFieldsToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('class_id')->index()->nullable();
+            $table->unsignedInteger('class_id')->index()->nullable();
             $table->foreign('class_id')->references('id')->on('scholl_classes')->onDelete('cascade');
         });
     }

@@ -8,8 +8,8 @@
                     <div class="card mt-2">
                         <div class="card-title mt-2 ml-2">  </div>
                         <div class="card-body">
-                            {{--  @can('major_create')  --}}
-                                <a href="{{route('admin.major.create')}}" class="btn btn-primary mb-2">{{ trans('global.create_new_report') }}</a>
+                            {{--  @can('registration_create')  --}}
+                                <a href="#" class="btn btn-primary mb-2">{{ trans('global.create_new_report') }}</a>
                             {{--  @endcan  --}}
                             <div class="panel-body">
                                 <table class="table table-bordered table-hover">
@@ -19,19 +19,19 @@
                                         <th>{{ trans('cruds.majors.fields.cost') }}</th>
                                         <th>{{ trans('cruds.majors.fields.option') }}</th>
                                     </tr>
-                                    @foreach ($majors as $major)
+                                    @foreach ($registrations as $registration)
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
-                                        <td>{{$major->name}}</td>
-                                        <td>{{ $major->cost }}</td>
+                                        <td>{{$registration->name}}</td>
+                                        <td>{{ $registration->cost }}</td>
                                         <td>
-                                            <form action="{{route('admin.major.destroy', $major->id)}}" method="POST" style="display:inline">
+                                            <form action="#" method="POST" style="display:inline">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <input type="submit" class="btn btn-sm btn-danger" value="{{ trans('global.delete') }}">
                                             </form>
                                             
-                                            <button class = "btn btn-sm btn-secondary" type="button"><a href="{{route('admin.major.edit', $major->id)}}" > {{ trans('global.edit') }} </a> </button>
+                                            <button class = "btn btn-sm btn-secondary" type="button"><a href="#" > {{ trans('global.edit') }} </a> </button>
                                         </td>
                                     </tr>
                                     @endforeach

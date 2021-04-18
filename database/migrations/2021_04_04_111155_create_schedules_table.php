@@ -14,7 +14,8 @@ class CreateSchedulesTable extends Migration
     public function up()
     {
         Schema::create('schedules', function (Blueprint $table) {
-            $table->id();
+            // Penjadwalan
+            $table->increments('id');
             $table->string('period');
             $table->string('weekday');
             $table->time('start_time');

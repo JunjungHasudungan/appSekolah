@@ -14,7 +14,7 @@ class CreateSchoolClassesTable extends Migration
     public function up()
     {
         Schema::create('scholl_classes', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('name');
             $table->timestamps();
         });

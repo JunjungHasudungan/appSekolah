@@ -13,8 +13,8 @@ class UserController extends Controller
 
         $users = User::with(['roles', 'biographies'])->get();
 
-        return view('user.index', compact('users'));
-        // dd($users);
+        // return view('admin.user.index', compact('users'));
+        dd($users);
     }
 
     public function create()

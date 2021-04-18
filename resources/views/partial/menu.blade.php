@@ -19,7 +19,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                    <a class="c-sidebar-nav-link" href="{{route('admin.registration.index')}}">
+                    <a class="c-sidebar-nav-link" href="#">
                             <i class="c-sidebar-nav-icon fas fa-cogs"></i> {{ trans('global.registration') }} 
                         </a>
                     </li>
@@ -34,7 +34,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                    <a class="c-sidebar-nav-link" href="{{route('admin.major.index')}}">
+                    <a class="c-sidebar-nav-link" href="#">
                             <i class="fa-fw fas fa-cogs c-sidebar-nav-icon"></i> {{ trans('global.majors') }} 
                         </a>
                     </li>

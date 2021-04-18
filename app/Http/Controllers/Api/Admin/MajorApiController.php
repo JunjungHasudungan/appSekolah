@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Major;
 use App\Http\Requests\StoreMajorRequest;
 use App\Http\Requests\UpdateMajorRequest;
-use App\Http\Resources\MajorResource;
+use App\Http\Resources\Admin\MajorResource;
 use Symfony\Component\HttpFoundation\Response;
 
 class MajorApiController extends Controller

@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Admin;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PermissionResource extends JsonResource
+class MajorResource extends JsonResource
 {
     public function toArray($request)
     {
         return [
             'id'    => $this->id,
-            'title' => $this->title    
+            'name'  => $this->name,
+            'cost'  => $this->cost
         ];
     }
 }

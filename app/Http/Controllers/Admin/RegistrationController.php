@@ -15,7 +15,7 @@ class RegistrationController extends Controller
     public function index()
     {
         $registrations = Registration::with('students')->get();
-        return view('registration.index', compact('registrations'));
+        return view('admin.registration.index', compact('registrations'));
         // dd($registrations);
     }
 

@@ -15,14 +15,14 @@ class MajorController extends Controller
         // $majors = Major::with('courses')->get();
         $majors = Major::paginate(5);
         
-        return view('admin.majors.index', compact('majors')); 
+        return view('admin.major.index', compact('majors')); 
         // dd($majors);
     }
 
 
     public function create()
     {
-        return view('majors.create');
+        return view('admin.major.create');
     }
 
 
@@ -38,14 +38,14 @@ class MajorController extends Controller
     {
         // $major->find($major);
         // $major->where('id', $major)->get(['name', 'cost']);
-        return view('majors.show', compact('major'));
+        return view('major.show', compact('major'));
         // dd($major);
     }
 
 
     public function edit(Major $major)
     {
-        return view('majors.edit', compact('major'));
+        return view('major.edit', compact('major'));
     }
 
     

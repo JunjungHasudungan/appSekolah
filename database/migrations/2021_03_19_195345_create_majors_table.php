@@ -9,7 +9,7 @@ class CreateMajorsTable extends Migration
     public function up()
     {
         Schema::create('majors', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('name');
             $table->double('cost', 8, 0);
             $table->timestamps();

@@ -11,11 +11,11 @@ class Role extends Model
 
     public function students()
     {
-        return $this->hasMany(Student::class);
+        return $this->hasMany(\App\Models\Student::class);
     }
 
     public function users()
     {
-        return $this->belongsToMany('\App\User', 'role_user', 'user_id', 'role_id');
+        return $this->belongsToMany(\App\User::class);
     }
 }

@@ -9,7 +9,7 @@ class CreateCoursesTable extends Migration
     public function up()
     { // mata kuliah
         Schema::create('courses', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('name');
             $table->double('point', 5, 0);
             $table->timestamps();

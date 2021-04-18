@@ -6,26 +6,32 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::redirect('/', '/login');
 
 // Auth::routes();
 Route::group([
     'prefix'        => 'admin',
     'as'            => 'admin.',
-    'namespace'     => 'Admin',
-    // 'middleware'    => ['auth', 'admin']
+    'namespace'     => 'admin',
+    // 'middleware'    => ['auth']
 
 ], function(){
 
     // Route::get('/', 'HomeController@index')->name('home');
+
     // Registrations
-    Route::resource('registration', RegistrationController::class);
+    Route::resource('registration', 'RegistrationController');
+
     // Majors
-    Route::resource('major', MajorController::class);
+    Route::resource('major', 'MajorController');
+    
     // Permissions
-    Route::resource('permission', PermissionController::class);
+    Route::resource('permission', 'PermissionController');
+    
     // Courses
-    Route::resource('courses', CoursesController::class);
+    Route::resource('courses', 'CoursesController');
+    
     // Users
-    Route::resource('user', UserController::class);
+    Route::resource('user', 'UserController');
 });
 // Route::get('/home', 'HomeController@index')->name('home');
